@@ -1,3 +1,6 @@
+% latex cheat sheet for spatial data handling in R - modify to suit AniMove.org needs
+% based on cheatsheets latex document of J. Stein, T. Short and E. Paradis
+
 \documentclass[10pt,landscape]{article}
 \usepackage{multicol}
 \usepackage{calc}
@@ -21,27 +24,6 @@
 %  ps2pdf latexsheet.ps
 
 
-% If you're reading this, be prepared for confusion.  Making this was
-% a learning experience for me, and it shows.  Much of the placement
-% was hacked in; if you make it better, let me know...
-
-
-% 2008-04
-% Changed page margin code to use the geometry package. Also added code for
-% conditional page margins, depending on paper size. Thanks to Uwe Ziegenhagen
-% for the suggestions.
-
-% 2006-08
-% Made changes based on suggestions from Gene Cooperman. <gene at ccs.neu.edu>
-
-
-% To Do:
-% \listoffigures \listoftables
-% \setcounter{secnumdepth}{0}
-
-
-% This sets page margins to .5 inch if using letter paper, and to 1cm
-% if using A4 paper. (This probably isn't strictly necessary.)
 % If using another size paper, use default 1cm margins.
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
 	{ \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
@@ -110,7 +92,7 @@
 \end{center}
 
 \begin{center}
- \includegraphics[width=.3\textwidth]{../../Pictures/webpage/animove/buffalo.png}
+ \includegraphics[width=.22\textwidth]{pics/animove_org_WegmannBevanda_zebra_africa_dbb_light.png}
  % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
 \end{center}
 
@@ -133,8 +115,7 @@ last updated: \today
 \verb!bcpa!  & analyse movement tracks\\
 & \\
 further relevant packages:\\
-
-
+% 
 \verb!spatstat!  & spatial statistics\\
 \verb!gstat!  & geostatistics\\
 \verb!geoR!  & geostatistical analysis\\
@@ -146,7 +127,7 @@ further relevant packages:\\
 \verb!lme4!  & mixed-effects model\\
 \verb!landsat!  & Landsat specific analysis\\
 \verb!spgrass6!  & interaction with GRASS\\
-
+% 
 & \\
 visualisation packages:\\
 \verb!maptools!  & handling spatial objects\\
@@ -155,8 +136,7 @@ visualisation packages:\\
 \verb!mapdata!  & supplements to maps\\
 \verb!rasterVis!  & enhanced raster visualisation\\
 \verb!ggplot2!  & for more fancy plots\\
-\verb!reshape2!  & flexibly reshape data
-
+\verb!reshape2!  & flexibly reshape data \\
  & 
 \end{tabular}
 
@@ -165,12 +145,6 @@ More spatial R packages are listed here: cran.r-project.org/web/views/Spatial.ht
 \rule{0.32\textwidth}{0.4pt}
 Relevant commands are listed below, actual syntax needs to be checked within the manual pages of each command. 
 \rule{0.32\textwidth}{0.4pt}
-
-% Used at the very beginning of a document:
-% \verb!\documentclass{!\textit{class}\verb!}!.  Use
-% \verb!\begin{document}! to start contents and \verb!\end{document}! to
-% end the document.
-
 
 
 
@@ -460,7 +434,7 @@ compiled by: Wegmann, Leutner, Bevanda, Horning \& Safi \\ \THEYEAR
 
 
 \begin{center}
- \includegraphics{../../Pictures/webpage/animove/rhino.png}
+ \includegraphics[width=.2\textwidth]{pics/earth-observation_org_WegmannBevanda_rhino_family.png}
  % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
 \end{center}
 
