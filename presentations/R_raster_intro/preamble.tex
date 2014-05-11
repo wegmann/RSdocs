@@ -1,0 +1,231 @@
+
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+% \usepackage{overpic}
+\usepackage{grffile} % for image names with spaces or dots
+
+% color support
+\usepackage{color}
+
+% for animation
+\usepackage{multimedia}
+\usepackage{animate}
+
+
+
+% definitions
+% \useoutertheme{shadow}
+\setbeamertemplate{blocks}[rounded][shadow=true] %blocks round and shadowed
+\setbeamertemplate{navigation symbols}{} %navigation symbols off
+% \usecolortheme[named=gray]{structure} %farbe des Text in boxen
+
+
+\usepackage{thumbpdf}
+\usepackage{wasysym}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage[percent]{overpic}
+
+\usepackage{multimedia}
+\usepackage{animate}
+
+\usepackage{tikz}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usetikzlibrary{arrows,shapes}
+
+% ######### inserted for overlay function
+% \usepackage{tikz}
+% \usepackage{multimedia}
+% \usetikzlibrary{mindmap,trees}
+% \usetikzlibrary{shapes} 
+% \usetikzlibrary{snakes}
+% \usetikzlibrary{calc}
+% ###########
+
+\usetikzlibrary{calendar} % LTEX and plain TEX
+
+
+\tikzstyle{every picture}+=[remember picture]
+
+\usepackage[absolute,overlay]{textpos} 
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{1cm}{1cm} % start everything near the top-left corner
+\setlength{\parindent}{0pt}
+
+% um text etc. zu drehen
+\usepackage{rotating}
+
+% % % in case you want to change the colors separately:
+\definecolor{greenMW}{RGB}{0,60,0} %another shade of green to use
+\setbeamercolor{frametitle}{fg=greenMW} %color of the title in \begin{frame}{frame title}
+
+% \setbeamercolor{title}{parent=palette tertiary}
+\setbeamercolor{block title}{bg=greenMW, fg=lightgray} %background (bg) and foreground (fg) color of the block title
+\setbeamercolor{block body}{bg=lightgray!60} %bg color of block body
+
+% alert block settings
+\setbeamercolor{block title alerted}{bg=green!80!black, fg=gray} %bg/fg color of title
+\setbeamercolor{block body alerted}{bg=green!35!black, fg=lightgray} %bg/fg color of block body
+
+% example block settings
+\setbeamercolor{block title example}{bg=greenMW!70!black, fg=lightgray} %bg/fg color of title
+\setbeamercolor{block body example}{bg=darkred!70!black, fg=lightgray} %bg/fg color of block body
+
+
+% below the coloring of the parts which are used for section/subsection etc. in the header or footer of a slide can be entered
+\setbeamercolor*{section in head/foot}{fg=lightgray,bg=greenMW}
+\setbeamercolor*{subsection in head/foot}{fg=blue!35!black,bg=lightgray!95!blue}
+\setbeamercolor*{title in head/foot}{fg=blue!35!black,bg=lightgray!95!blue}
+\setbeamercolor*{title}{fg=lightgray,bg=greenMW}
+\setbeamercolor*{author in head/foot}{fg=lightgray,bg=greenMW}
+\setbeamercolor*{date in head/foot}{fg=lightgray,bg=blue!35!black}
+
+
+\setbeamercolor{item}{fg=greenMW}
+
+
+
+
+
+% % ########
+% % ## tikz helper 
+% % #########
+% 
+% 
+% %% helper macros
+% \newcommand\pgfmathsinandcos[3]{%
+%   \pgfmathsetmacro#1{sin(#3)}%
+%   \pgfmathsetmacro#2{cos(#3)}%
+% }
+% \newcommand\LongitudePlane[3][current plane]{%
+%   \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+%   \pgfmathsinandcos\sint\cost{#3} % azimuth
+%   \tikzset{#1/.estyle={cm={\cost,\sint*\sinEl,0,\cosEl,(0,0)}}}
+% }
+% \newcommand\LatitudePlane[3][current plane]{%
+%   \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+%   \pgfmathsinandcos\sint\cost{#3} % latitude
+%   \pgfmathsetmacro\yshift{\cosEl*\sint}
+%   \tikzset{#1/.estyle={cm={\cost,0,0,\cost*\sinEl,(0,\yshift)}}} %
+% }
+% \newcommand\DrawLongitudeCircle[2][1]{
+%   \LongitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%    % angle of "visibility"
+%   \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+%   \draw[current plane,thin,black] (\angVis:1) arc (\angVis:\angVis+180:1);
+%   \draw[current plane,thin,dashed] (\angVis-180:1) arc (\angVis-180:\angVis:1);
+% }%this is fake: for drawing the grid
+% \newcommand\DrawLongitudeCirclered[2][1]{
+%   \LongitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%    % angle of "visibility"
+%   \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+%   \draw[current plane,green!30!black,thick] (150:1) arc (150:180:1);
+%   %\draw[current plane,dashed] (-50:1) arc (-50:-35:1);
+% }%for drawing the grid
+% \newcommand\DLongredd[2][1]{
+%   \LongitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%    % angle of "visibility"
+%   \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+%   \draw[current plane,black,dashed, ultra thick] (150:1) arc (150:180:1);
+% }
+% \newcommand\DLatred[2][1]{
+%   \LatitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%   \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+%   % angle of "visibility"
+%   \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+%   \draw[current plane,dashed,black,ultra thick] (-50:1) arc (-50:-35:1);
+% 
+% }
+% \newcommand\fillred[2][1]{
+%   \LongitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%    % angle of "visibility"
+%   \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+%   \draw[current plane,green!30!black,thin] (\angVis:1) arc (\angVis:\angVis+180:1);
+% 
+% }
+% 
+% \newcommand\DrawLatitudeCircle[2][1]{
+%   \LatitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%   \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+%   % angle of "visibility"
+%   \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+%   \draw[current plane,thin,black] (\angVis:1) arc (\angVis:-\angVis-180:1);
+%   \draw[current plane,thin,dashed] (180-\angVis:1) arc (180-\angVis:\angVis:1);
+% }%Defining functions to draw limited latitude circles (for the red mesh)
+% \newcommand\DrawLatitudeCirclered[2][1]{
+%   \LatitudePlane{\angEl}{#2}
+%   \tikzset{current plane/.prefix style={scale=#1}}
+%   \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+%   % angle of "visibility"
+%   \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+%   %\draw[current plane,red,thick] (-\angVis-50:1) arc (-\angVis-50:-\angVis-20:1);
+% \draw[current plane,green!30!black,thick] (-50:1) arc (-50:-35:1);
+% 
+% }
+% 
+% \tikzset{%
+%   >=latex,
+%   inner sep=0pt,%
+%   outer sep=2pt,%
+%   mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+%     fill=black,circle}%
+% }
+
+%% document-wide tikz options and styles
+
+% \tikzset{%
+%   >=latex, % option for nice arrows
+%   inner sep=0pt,%
+%   outer sep=2pt,%
+%   mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+%     fill=black,circle}%
+% }
+
+
+% #######
+
+
+% \setbeamercovered{transparent}
+% \setbeamercovered{dynamic}
+% \setbeamercovered{invisble}
+
+% to display source code on the slides:
+\usepackage{listings}
+% \lstset{language=R}
+\lstset{basicstyle=\footnotesize,numbers=left, numberstyle=\tiny, numbersep=2pt,language=R,commentstyle=\tiny\textcolor{gray!80!blue},showstringspaces=false,breaklines=true,breakatwhitespace=false,backgroundcolor=\color{lightgray!50!blue}}
+% more infos: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+\lstset{ %
+language=bash,                % choose the language of the code
+basicstyle=\scriptsize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\tiny,      % the size of the fonts that are used for the line-numbers
+stepnumber=1	,                   % the step between two line-numbers. If it's 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{gray!20},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,	                % adds a frame around the code
+% framerule=1pt,
+tabsize=2,	                % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=true,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)}          % if you want to add a comment within your code
+}
+
+
+
+% path to graphics
+\usepackage{graphics}
+\graphicspath{{pics/}{logo/}}
+
