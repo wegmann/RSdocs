@@ -1,7 +1,7 @@
 % latex cheat sheet for spatial data handling in R - modify to suit AniMove.org needs
 % based on cheatsheets latex document of J. Stein, T. Short and E. Paradis
 
-\documentclass[10pt,landscape]{article}
+\documentclass[a4paper,10pt,landscape]{article}
 \usepackage{multicol}
 \usepackage{calc}
 \usepackage{ifthen}
@@ -28,8 +28,8 @@
 \ifthenelse{\lengthtest { \paperwidth = 11in}}
 	{ \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
 	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
-		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
-		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=2cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=2cm} }
 	}
 
 % Turn off header and footer
@@ -91,10 +91,10 @@
      for spatial data handling, remote sensing, spatial statistics and animal movement analysis
 \end{center}
 
-\begin{center}
- \includegraphics[width=.22\textwidth]{pics/animove_org_WegmannBevanda_zebra_africa_dbb_light.png}
- % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
-\end{center}
+% \begin{center}
+%  \includegraphics[width=.2\textwidth]{pics/animove_org_WegmannBevanda_zebra_africa_dbb_light.png}
+%  % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
+% \end{center}
 
 
 \url{www.animove.org}\\
