@@ -185,15 +185,14 @@ getData() & retrieves DEM and climate data directly from the web
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
-print()   & prints raster metadata   \\     
 click()   & interactively query raster plot \\
 hist()    & histogram of raster values per layer \\
 cellStats()  & summary statistics of single layers \\
-summary() & summary statistics \\
+summary() & overall summary statistics \\
 extent()  & extent of raster data set \\
 ncell()   & number of cells (of one layer)\\
 nlayers() & number of bands \\
-names() & prints layer names \\
+names() & prints or sets layer names \\
 str()	& print the data structure \\
 NAvalue() & get or set background values
 
@@ -238,16 +237,22 @@ stack() & stack different raster layers together \\
 addLayer(); dropLayer()	& add/drop a raster layer\\
 crop() 		& crop raster set to smaller extent  \\
 drawExtent()	& draw extent on a plot for e.g. inclusion in crop(raster,extent)\\
-drawPolyon()	& draw polygon on a plot - alternative to drawExtent()\\
+drawPolygon()	& draw polygon on a plot - alternative to drawExtent()\\
 mask() 		& masking of background values \\
-merge(); mosaic() & combine raster tiles to a raster with larger extent \\
-extract() 	& extract values from Raster objects, using points or polygons  \\
+merge() & combine raster tiles to a raster with larger extent (NA values are
+ignored)
+\\
+mosaic() & combine raster tiles  and apply function to overlapping pixels, e.g.
+mean\\
+extract() 	& extract values from Raster objects, using vector data  \\
 & \\
 \textbf{Basic Operations} & \\
 
-raster*2/raster2 & any basic operation, more efficient: \\                
-calc()  	& apply a function to raster data and\\
-overlay()       & apply a function which uses multiple bands, e.g. to calculate NDVI \\
+raster*2/raster2 & any basic algebra operation \\                
+calc()  	& more efficient raster algebra, applies a function to raster data \\
+overlay()       & apply a function which uses specific bands, e.g. to calculate
+NDVI
+\\
 focal()         & moving window operations \\
 distance()      & calculate distance to closest feature, e.g. distance to water\\
 terrain() 	& calculate terrain attributes from DEM, e.g. slope \\
@@ -255,8 +260,8 @@ zonal()         & zonal statistics, for classified raster\\
 reclassify()	& reclassify raster values \\
 subs()		& substitutes values \\
 resample() 	& resampling of raster to raster \\
-aggregate()	& aggregation of cells \\
-disaggregate()	& disaggregation of cells \\
+aggregate()	& aggregation of cells to coarser resolution\\
+disaggregate()	& disaggregation of cells to finer resolution\\
 rasterToPoints() & converts a raster to vector points	\\
 rasterToPolygons() & converts a raster to polygons \\
 rasterToContour()  & converts raster values to contour \\
@@ -364,7 +369,6 @@ distanceFromPoints()    & computes the distance to points, output is a raster\\
 extract()		& extracts raster values behind points, lines or polygons \\
 gIntersection()		& intersection of vector data sets \\
 gBuffer()		& Buffer Geometry \\
-gUnion()		& ... \\
  & 
 \end{tabular}
 
