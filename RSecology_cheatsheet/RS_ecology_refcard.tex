@@ -237,10 +237,9 @@ stack() & stack different raster layers together \\
 addLayer(); dropLayer()	& add/drop a raster layer\\
 crop() 		& crop raster set to smaller extent  \\
 drawExtent()	& draw extent on a plot for e.g. inclusion in crop(raster,extent)\\
-drawPolygon()	& draw polygon on a plot - alternative to drawExtent()\\
+drawPolygon()	& create SpatialPolygon by drawing on a plot\\
 mask() 		& masking of background values \\
-merge() & combine raster tiles to a raster with larger extent (NA values are
-ignored)
+merge() & combine raster tiles to a raster with larger extent (ignores NAs)
 \\
 mosaic() & combine raster tiles  and apply function to overlapping pixels, e.g.
 mean\\
@@ -265,11 +264,11 @@ disaggregate()	& disaggregation of cells to finer resolution\\
 rasterToPoints() & converts a raster to vector points	\\
 rasterToPolygons() & converts a raster to polygons \\
 rasterToContour()  & converts raster values to contour \\
-$[[$\ $]]$		& address specific raster layer, e.g. myRaster[[1]] for first layer of myRaster    \\  
-x $<$- raster $>$ 50	& boolean operation, output is binary \\
-raster[raster $<=$ 50] $<$- 0 & replace all values smaller then 50 with 0 \\
-r1[r1$==$50] $<$- r2[r1$==$50] & values in r1 whose values are equal 50 are replaced by the corresponding values of r2 \\
-		&			 \\
+$[[$\ $]]$		& address specific raster layer, e.g. myRaster[[1]] for first layer    \\  
+x $<$- raster $>$ 50	& boolean operation, binary output \\
+raster[raster $<=$ 50] $<$- 0 & replace all values $< 50$ with 0 \\
+r1[r1$==$50] $<$- r2[r1$==$50] & pixels in r1 of value 50 are replaced by the
+corresponding values of r2 \\
   sampleRandom() & random sample from cell values\\
   sampleRegular() & regular sample from cell values\\
   sampleStratified() & stratified sample from cell values\\
@@ -279,7 +278,6 @@ r1[r1$==$50] $<$- r2[r1$==$50] & values in r1 whose values are equal 50 are repl
    
  \multicolumn{2}{l}{\textbf{Remote Sensing Operations}} \\
 
-       & \\
   
 
 superClass() 	& supervised classification \\                
