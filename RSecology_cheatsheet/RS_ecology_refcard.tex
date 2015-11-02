@@ -105,43 +105,45 @@ last updated: \today
 
 \section{Packages}
 
-Packages which are used in the book are listed here, more relevant packages are however available within R
+Packages which are used abundantly in the book are listed here, more relevant packages are however available within R
 
  \bigskip
  
 \begin{tabular}{@{}ll@{}}
 \verb!RStoolbox!    & various RS functions  \\
 \verb!raster!    & for raster data manipulation \\
-\verb!rgdal!  & data import and export, projections \\
+\verb!rgdal!  & data import/export, projections \\
 
-\verb!sp!     & for vector data manipulation \\
+\verb!sp!     & vector data manipulation \\
 \verb!rgeos!  & geometry commands \\
 
-\verb!wrspathrow!  & provides Landsat WRS-2 information\\
-\verb!gfcanalysis!  & access to Forest Cover Change product\\
+\verb!wrspathrow!  & Landsat WRS-2 information\\
+\verb!gfcanalysis!  & Forest Cover Change product\\
 
-\verb!modis!  & download and analyse MODIS data\\
+\verb!modis!  & download and analyse MODIS\\
 \verb!bfast!  & analyse time-series data\\
-% \verb!landsat!  & analyse landsat data\\
+\verb!rasterVis!  & visualisation of time-series data\\
+\verb!glcm!  & calculation of spatial metrics\\
 
 % \verb!spdep!  & spatial dependence \\
 \verb!dismo!  &  species distribution modelling \\
+\verb!randomForest!  &  random forest modelling \\
+\verb!mgcv!  &  gam modelling \\
 \verb!move!  & access and analyse movement data\\
+\verb!adehabitatHR!  & home range analysis\\
 % \verb!bcpa!  & analyse movement tracks\\
 
 & \\
-% further relevant packages:\\
+further relevant packages:\\
 % % 
 % \verb!spatstat!  & spatial statistics\\
-% \verb!gstat!  & geostatistics\\
 % \verb!geoR!  & geostatistical analysis\\
 % \verb!gdistance!  & distances on geographical grids\\
 % \verb!spsurvey!  & sampling functionality\\
+% \verb!gstat!  & geostatistics\\
 % \verb!trip!  & sp class extension for track analysis\\
-% \verb!randomForest!  & random Forest implementation\\
-% \verb!mgcv!  & GAM implementation\\
+
 % \verb!lme4!  & mixed-effects model\\
-% \verb!landsat!  & Landsat specific analysis\\
 % \verb!spgrass6!  & interaction with GRASS\\
 % % 
 % & \\
@@ -151,10 +153,12 @@ Packages which are used in the book are listed here, more relevant packages are 
 % \verb!mapproj!  & map projections\\
 % \verb!mapdata!  & supplements to maps\\
 % \verb!rasterVis!  & enhanced raster visualisation\\
-% \verb!ggplot2!  & for more fancy plots\\
-% \verb!reshape2!  & flexibly reshape data \\
-%  & 
+\verb!ggplot2!  & for more fancy plots\\
+\verb!reshape2!  & flexibly reshape data \\
+ & \\
+ &
 \end{tabular}
+
 
 More spatial R packages are listed here: cran.r-project.org/web/views/Spatial.html
 
@@ -198,7 +202,6 @@ NAvalue() & get or set background values
 
 \end{tabular}
 
-
 \subsubsection{Visualisation}
 
 \begin{tabular}{@{}p{\the\MyLen}%
@@ -217,6 +220,7 @@ hovmoller() & spatio-temporal plotting options \\
 \end{tabular}
 
 
+
 \subsubsection{Projections}
 
 \begin{tabular}{@{}p{\the\MyLen}%
@@ -228,30 +232,27 @@ projectRaster()   & reprojects raster to new coordinate system \\
 
 
 \subsubsection{Data manipulation}
+
 Most raster commands will output a file to a chosen location, if filename= is specified. Otherwise it will use temp files.
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
- &  \\                
+%  &  \\                
 stack() & stack different raster layers together \\
 addLayer(); dropLayer()	& add/drop a raster layer\\
 crop() 		& crop raster set to smaller extent  \\
 drawExtent()	& draw extent on a plot for e.g. inclusion in crop(raster,extent)\\
 drawPolygon()	& create SpatialPolygon by drawing on a plot\\
 mask() 		& masking of background values \\
-merge() & combine raster tiles to a raster with larger extent (ignores NAs)
-\\
-mosaic() & combine raster tiles  and apply function to overlapping pixels, e.g.
-mean\\
+merge() & combine raster tiles to a raster with larger extent (ignores NAs)\\
+mosaic() & combine raster tiles  and apply function to overlapping pixels, e.g. mean\\
 extract() 	& extract values from Raster objects, using vector data  \\
 & \\
 \textbf{Basic Operations} & \\
 
 raster*2/raster2 & any basic algebra operation \\                
 calc()  	& more efficient raster algebra, applies a function to raster data \\
-overlay()       & apply a function which uses specific bands, e.g. to calculate
-NDVI
-\\
+overlay()       & apply a function which uses specific bands, e.g. to calculate NDVI\\
 focal()         & moving window operations \\
 distance()      & calculate distance to closest feature, e.g. distance to water\\
 terrain() 	& calculate terrain attributes from DEM, e.g. slope \\
@@ -264,22 +265,23 @@ disaggregate()	& disaggregation of cells to finer resolution\\
 rasterToPoints() & converts a raster to vector points	\\
 rasterToPolygons() & converts a raster to polygons \\
 rasterToContour()  & converts raster values to contour \\
-$[[$\ $]]$		& address specific raster layer, e.g. myRaster[[1]] for first layer    \\  
+$[[\textcolor{white}{...}]]$		& address specific raster layer, e.g. myRaster[[1]] for first layer    \\  
 x $<$- raster $>$ 50	& boolean operation, binary output \\
 raster[raster $<=$ 50] $<$- 0 & replace all values $< 50$ with 0 \\
-r1[r1$==$50] $<$- r2[r1$==$50] & pixels in r1 of value 50 are replaced by the
-corresponding values of r2 \\
-  sampleRandom() & random sample from cell values\\
-  sampleRegular() & regular sample from cell values\\
-  sampleStratified() & stratified sample from cell values\\
 
-     & \\
-  
-\textbf{RS Operations} & \\   
-% \multicolumn{2}{l}{\textbf{Remote Sensing Operations}} \\
+% r1[r1$==$50] $<$- r2[r1$==$50] & pixels in r1 of value 50 are replaced by the corresponding values of r2 \\
+% &  \\
+% sampleRandom() & random sample from cell values\\
+% sampleRegular() & regular sample from cell values\\
+% sampleStratified() & stratified sample from cell values\\
 
+\end{tabular}
   
 
+\subsection{RS Operations}
+  
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
 superClass() 	& supervised classification \\                
 unsuperClass()  & unsupervised classification\\
 rasterCVA()     & change vector analysis for change detection\\
@@ -287,26 +289,9 @@ rasterPCA()     & principal component analysis \\
 tasseledCap()   & tasseled cap transformation \\
 spectralIndices()   & computation of spectral indices \\
 fCover()   & analysis of fractional cover\\
-cloudMask()   & cloud masking\\
+% cloudMask()   & cloud masking\\
 \end{tabular}
 
-
-% \subsubsection{Time-series analysis}
-% 
-% For raster time-series analysis some additional commands are needed. Mainly related to the \textit{bfast} package.
-% 
-% 
-% \begin{tabular}{@{}p{\the\MyLen}%
-%                 @{}p{\linewidth-\the\MyLen}@{}}
-%  &  \\                
-% xxx() & .... \\
-% xx(); dropLayer()	& ....\\
-% xx() 		& ....  \\
-% 
-% \end{tabular}
-
-
-% \rule{0.32\textwidth}{0.4pt}
 
 
 \section{\textbf{Vector}}
@@ -441,7 +426,9 @@ Some useful commands which are related to spatial data analysis.
                 & \\
 gmap() & get google maps for your plot \\
 geocode() & geocoding in R \\
- &  \\
+
+
+&  \\
  &  \\
 %show() & summary of the move object \\
 
