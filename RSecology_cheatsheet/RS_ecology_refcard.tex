@@ -184,6 +184,7 @@ writeFormats() & list of supported raster file types \\
 getData() & retrieves DEM and climate data directly from the web
 \end{tabular}
 
+\bigskip
 
 \subsubsection{Information}
 
@@ -202,6 +203,8 @@ NAvalue() & get or set background values
 
 \end{tabular}
 
+\bigskip
+
 \subsubsection{Visualisation}
 
 \begin{tabular}{@{}p{\the\MyLen}%
@@ -219,7 +222,7 @@ hovmoller() & spatio-temporal plotting options \\
 
 \end{tabular}
 
-
+\bigskip
 
 \subsubsection{Projections}
 
@@ -247,7 +250,14 @@ mask() 		& masking of background values \\
 merge() & combine raster tiles to a raster with larger extent (ignores NAs)\\
 mosaic() & combine raster tiles  and apply function to overlapping pixels, e.g. mean\\
 extract() 	& extract values from Raster objects, using vector data  \\
+buffer()	& buffer around cells that are not NA	\\
+corLocal()	& local correlation based on moving window\\
+compareRaster()	& check if 2 raster have same extent, projection, resolution etc.\\
+cover()		&replace NA values with values of other layers\\
 & \\
+
+\bigskip
+
 \textbf{Basic Operations} & \\
 
 raster*2/raster2 & any basic algebra operation \\                
@@ -259,6 +269,8 @@ terrain() 	& calculate terrain attributes from DEM, e.g. slope \\
 zonal()         & zonal statistics, for classified raster\\
 reclassify()	& reclassify raster values \\
 subs()		& substitutes values \\
+cut()		& relcassify values using ranges\\
+stackApply()	& computations on layer stack\\
 resample() 	& resampling of raster to raster \\
 aggregate()	& aggregation of cells to coarser resolution\\
 disaggregate()	& disaggregation of cells to finer resolution\\
@@ -278,26 +290,48 @@ raster[raster $<=$ 50] $<$- 0 & replace all values $< 50$ with 0 \\
 \end{tabular}
   
 
-\subsection{RS Operations}
-  
+\subsection{Remote Sensing Operations}
+
+ \bigskip
+
+\subsubsection{Image Analysis}
+
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 superClass() 	& supervised classification \\                
 unsuperClass()  & unsupervised classification\\
+getValidation()   & extract validation from superClass object\\
+validateMap()   & validation of existing classification\\
+spectralIndices()   & computation of spectral indices \\
 rasterCVA()     & change vector analysis for change detection\\
 rasterPCA()     & principal component analysis \\
 tasseledCap()   & tasseled cap transformation \\
-spectralIndices()   & computation of spectral indices \\
 fCover()   & analysis of fractional cover\\
-% cloudMask()   & cloud masking\\
+
+ \bigskip
+
+\subsubsection{Preprocessing}
+
+cloudMask()   & cloud masking\\
+cloudShadowMask()   & cloud shadow masking\\
+topCor()   & topographic correction\\
+panSharpen()   & pan sharpening\\
+histMatch()   & image to image contrast matching\\
+decodeQA()   & quality flags to bit-words\\
+
 \end{tabular}
 
+\bigskip
+
+ \bigskip
 
 
 \section{\textbf{Vector}}
 
 Vector data often come in shp format including a variety of auxiliary files. All of them are relevant and are needed for further analysis. Note that readShapePoly() etc. from package maptools do 
 NOT automatically read projection information from shapefiles. It is reccomended to use readOGR() instead.
+
+ \bigskip
 
 \subsubsection{Import and Export}
 
@@ -310,6 +344,8 @@ ogrDrivers() 	& list supported file formats \\
 
 
 \end{tabular}
+
+ \bigskip
 
 \subsubsection{Information}
 
@@ -381,39 +417,39 @@ predict() & predicts statistical model into space (raster) \\
 \scriptsize
 
 
-\section{Movement Analysis}
-
-For most of the following commands the data sets need to be converted to a specific format. The commands are mainly provided in the ``move'' package but same names might exist in other packages. Use move::spTransform() to address the move command. Please consider checking the AniMove R cheat sheet (www.animove.org).
-
-
-\begin{tabular}{@{}p{\the\MyLen}%
-                @{}p{\linewidth-\the\MyLen}@{}}
-                & \\
-show() & summary of the move object \\
-as() & coerce movement between object types \\
-angle() &  extracts turning angles from a move object\\
-speed() & extracts speed from a move object \\  
-distance() & extracts distance between locations from a move object \\
-time.lag() & extracts time lag between locations from a move object \\
-spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
-mcp() & calculates minimum convex polygons for SpPdf \\
-kernelUD() & calculates a kernel density surface for SpPdf \\
-brownian.bridge() & claculates constant variance Brownian bridges \\
-brownian.bridge.dyn() & calculates dynamic Brownian bridges \\
-move() & import of movement data sets from movebank.org  \\
-moveStack() & stacks multiple animal tracks \\
-split() & splits stack into single move objects \\
-movebankLogin() & stores movebank.org credentials \\
-searchMovebankStudies() & reports the studies in movebank.org matching search criteria\\
-getMovebankData() & import tracks directly from movebank.org \\
-
-% .. & ... \\
-& 
-
-\end{tabular}
-
-
-%\rule{0.32\textwidth}{0.4pt}
+% \section{Movement Analysis}
+% 
+% For most of the following commands the data sets need to be converted to a specific format. The commands are mainly provided in the ``move'' package but same names might exist in other packages. Use move::spTransform() to address the move command. Please consider checking the AniMove R cheat sheet (www.animove.org).
+% 
+% 
+% \begin{tabular}{@{}p{\the\MyLen}%
+%                 @{}p{\linewidth-\the\MyLen}@{}}
+%                 & \\
+% show() & summary of the move object \\
+% as() & coerce movement between object types \\
+% angle() &  extracts turning angles from a move object\\
+% speed() & extracts speed from a move object \\  
+% distance() & extracts distance between locations from a move object \\
+% time.lag() & extracts time lag between locations from a move object \\
+% spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
+% mcp() & calculates minimum convex polygons for SpPdf \\
+% kernelUD() & calculates a kernel density surface for SpPdf \\
+% brownian.bridge() & claculates constant variance Brownian bridges \\
+% brownian.bridge.dyn() & calculates dynamic Brownian bridges \\
+% move() & import of movement data sets from movebank.org  \\
+% moveStack() & stacks multiple animal tracks \\
+% split() & splits stack into single move objects \\
+% movebankLogin() & stores movebank.org credentials \\
+% searchMovebankStudies() & reports the studies in movebank.org matching search criteria\\
+% getMovebankData() & import tracks directly from movebank.org \\
+% 
+% % .. & ... \\
+% & 
+% 
+% \end{tabular}
+% 
+% 
+% %\rule{0.32\textwidth}{0.4pt}
 
 
 \section{Miscellaneous}
@@ -451,12 +487,13 @@ while (...) \{ ...\} & while statement \\
 \rule{0.32\textwidth}{0.4pt}
 
 \begin{tabular}{@{}ll@{}}
-\verb!rNOMADS!    & data retrievel from NOAA, global and regional weather models \\
-\verb!...!  & access and analyse movement data\\
-\verb!bcpa!  & analyse movement tracks\\
-& \\
+\verb!rNOMADS!    & data retrievel from NOAA, global/regional weather models \\
+\verb!MODISTools!  & download and process MODIS data\\
+\verb!modis!  & download and process MODIS data\\
+\verb!bfastspatial!  & spatial temporal breakpoint detection\\
 \end{tabular}
-
+further spatial R packages:
+\url{https://cran.r-project.org/web/views/Spatial.html}
 
 
 % \rule{0.3\linewidth}{0.25pt}
