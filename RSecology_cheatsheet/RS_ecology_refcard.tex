@@ -396,9 +396,11 @@ gBuffer()		& Buffer Geometry \\
 
 \rule{0.32\textwidth}{0.4pt}
 
-
+\bigskip
 
 \section{Spatial Modeling}
+
+\bigskip
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -407,13 +409,21 @@ evaluate() & cross-validation of models with presence/absence data\\
 randomForest() & fits a randomForest model  \\
 maxent() & executes Maxent from R\\
 gam() & fits a GAM \\
- &  \\                
+svm() & support vector machine \\
+&  \\                
 predict() & predicts statistical model into space (raster) \\
 
- & 
-
+ & \\
+move() & import of movement data sets from movebank.org  \\
+angle() &  extracts turning angles from a move object\\
+speed() & extracts speed from a move object \\  
+distance() & extracts distance between locations from a move object \\
+move::spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
+mcp() & calculates minimum convex polygons for SpPdf \\
+kernelUD() & calculates a kernel density surface for SpPdf \\
 \end{tabular}
 
+\bigskip
 
 \rule{0.32\textwidth}{0.4pt}
 \scriptsize
@@ -429,16 +439,12 @@ predict() & predicts statistical model into space (raster) \\
 %                 & \\
 % show() & summary of the move object \\
 % as() & coerce movement between object types \\
-% angle() &  extracts turning angles from a move object\\
-% speed() & extracts speed from a move object \\  
-% distance() & extracts distance between locations from a move object \\
+
 % time.lag() & extracts time lag between locations from a move object \\
-% spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
-% mcp() & calculates minimum convex polygons for SpPdf \\
-% kernelUD() & calculates a kernel density surface for SpPdf \\
+
 % brownian.bridge() & claculates constant variance Brownian bridges \\
 % brownian.bridge.dyn() & calculates dynamic Brownian bridges \\
-% move() & import of movement data sets from movebank.org  \\
+
 % moveStack() & stacks multiple animal tracks \\
 % split() & splits stack into single move objects \\
 % movebankLogin() & stores movebank.org credentials \\
@@ -453,6 +459,7 @@ predict() & predicts statistical model into space (raster) \\
 % 
 % %\rule{0.32\textwidth}{0.4pt}
 
+\bigskip
 
 \section{Miscellaneous}
 
