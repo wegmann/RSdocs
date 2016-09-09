@@ -104,7 +104,8 @@ last updated: \today
 
 
 \section{Packages}
-\begin{tabular}{@{}ll@{}}
+\begin{tabular}{@{}p{\the\MyLen}%
+		@{}p{\linewidth-\the\MyLen}@{}}
 \verb!raster!    & for raster data manipulation \\
 \verb!sp!     & for vector data manipulation \\
 \verb!rgdal!  & data import and export, projections \\
@@ -113,6 +114,8 @@ last updated: \today
 \verb!dismo!  &  species distribution modelling \\
 \verb!move!  & access and analyse movement data\\
 \verb!bcpa!  & analyse movement tracks\\
+\verb!ctmm!  & calculate continuous time movement models\\
+\verb!adehabitatHR! & home range calculations including clasical methods\\
 & \\
 further relevant packages:\\
 % 
@@ -136,6 +139,7 @@ visualisation packages:\\
 \verb!mapdata!  & supplements to maps\\
 \verb!rasterVis!  & enhanced raster visualisation\\
 \verb!ggplot2!  & for more fancy plots\\
+\verb!ggmap!  & map backgrounds for \verb!ggplot2!\\
 \verb!reshape2!  & flexibly reshape data \\
  & 
 \end{tabular}
@@ -157,11 +161,11 @@ Raster data manipulation is similar to a spreadsheet or matrix manipulation but 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
                 
-raster() & import (or generate) one raster layer \\
-brick() & import raster with multiple layers \\
-writeRaster()   & export raster data to file\\
-writeFormats() & list of supported raster file types \\
-getData() & retrieves DEM and climate data directly from the web
+raster::raster() & import (or generate) one raster layer \\
+raster::brick() & import raster with multiple layers \\
+raster::writeRaster()   & export raster data to file\\
+raster::writeFormats() & list of supported raster file types \\
+raster::getData() & retrieves DEM and climate data directly from the web
 \end{tabular}
 
 
@@ -172,14 +176,14 @@ getData() & retrieves DEM and climate data directly from the web
 print()   & prints raster metadata   \\     
 click()   & interactively query raster plot \\
 hist()    & histogram of raster values per layer \\
-cellStats()  & summary statistics of single layers \\
+raster::cellStats()  & summary statistics of single layers \\
 summary() & summary statistics \\
-extent()  & extent of raster data set \\
-ncell()   & number of cells (of one layer)\\
-nlayers() & number of bands \\
+raster::extent()  & extent of raster data set \\
+raster::ncell()   & number of cells (of one layer)\\
+raster::nlayers() & number of bands \\
 names() & prints layer names \\
 str()	& print the data structure \\
-NAvalue() & get or set background values
+raster::NAvalue() & get or set background values
 
 \end{tabular}
 
@@ -209,7 +213,7 @@ streamplot() & plotting of streamlines
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 projection()	  & query or set projection (does NOT reproject)\\                
-projectRaster()   & reprojects raster to new coordinate system \\
+raster::projectRaster()   & reprojects raster to new coordinate system \\
 
 \end{tabular}
 
@@ -220,36 +224,36 @@ Most raster commands will output a file to a chosen location, if filename= is sp
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
  &  \\                
-stack() & stack different raster layers together \\
-addLayer(); dropLayer()	& add/drop a raster layer\\
-crop() 		& crop raster set to smaller extent  \\
-drawExtent()	& draw extent on a plot for e.g. inclusion in crop(raster,extent)\\
-mask() 		& masking of background values \\
-merge(); mosaic() & combine raster tiles to a raster with larger extent \\
-extract() 	& extract values from Raster objects, using points or polygons  \\
+raster::stack() & stack different raster layers together \\
+raster::addLayer(); raster::dropLayer()	& add/drop a raster layer\\
+raster::crop() 		& crop raster set to smaller extent  \\
+raster::drawExtent()	& draw extent on a plot for e.g. inclusion in crop(raster,extent)\\
+raster::mask() 		& masking of background values \\
+raster::merge(); mosaic() & combine raster tiles to a raster with larger extent \\
+raster::extract() 	& extract values from Raster objects, using points or polygons  \\
 raster*2/raster2 & any basic operation, more efficient: \\                
-calc()  	& apply a function to raster data and\\
-overlay()       & apply a function which uses multiple bands, e.g. to calculate NDVI \\
-focal()         & moving window operations \\
-distance()      & calculate distance to closest feature, e.g. distance to water\\
-terrain() 	& calculate terrain attributes from DEM, e.g. slope \\
-zonal()         & zonal statistics, for classified raster\\
-reclassify()	& reclassify raster values \\
-subs()		& substitutes values \\
-resample() 	& resampling of raster to raster \\
-aggregate()	& aggregation of cells \\
-disaggregate()	& disaggregation of cells \\
-rasterToPoints() & converts a raster to vector points	\\
-rasterToPolygons() & converts a raster to polygons \\
-rasterToContour()  & converts raster values to contour \\
+raster::calc()  	& apply a function to raster data and\\
+raster::overlay()       & apply a function which uses multiple bands, e.g. to calculate NDVI \\
+raster::focal()         & moving window operations \\
+raster::distance()      & calculate distance to closest feature, e.g. distance to water\\
+raster::terrain() 	& calculate terrain attributes from DEM, e.g. slope \\
+raster::zonal()         & zonal statistics, for classified raster\\
+raster::reclassify()	& reclassify raster values \\
+raster::subs()		& substitutes values \\
+raster::resample() 	& resampling of raster to raster \\
+raster::aggregate()	& aggregation of cells \\
+raster::disaggregate()	& disaggregation of cells \\
+raster::rasterToPoints() & converts a raster to vector points	\\
+raster::rasterToPolygons() & converts a raster to polygons \\
+raster::rasterToContour()  & converts raster values to contour \\
 $[[$\ $]]$		& address specific raster layer, e.g. myRaster[[1]] for first layer of myRaster    \\  
 x $<$- raster $>$ 50	& boolean operation, output is binary \\
 raster[raster $<=$ 50] $<$- 0 & replace all values smaller then 50 with 0 \\
 r1[r1$==$50] $<$- r2[r1$==$50] & values in r1 whose values are equal 50 are replaced by the corresponding values of r2 \\
 		&			 \\
-  sampleRandom() & random sample from cell values\\
-  sampleRegular() & regular sample from cell values\\
-  sampleStratified() & stratified sample from cell values\\
+raster::sampleRandom() & random sample from cell values\\
+raster::sampleRegular() & regular sample from cell values\\
+raster::sampleStratified() & stratified sample from cell values\\
   
 \end{tabular}
 
@@ -268,9 +272,9 @@ NOT automatically read projection information from shapefiles. It is reccomended
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
                 
-readOGR() 		& import vector file \\
-writeOGR() 		& export vector file \\
-ogrDrivers() 	& list supported file formats \\
+rgdal::readOGR() 		& import vector file \\
+rgdal::writeOGR() 		& export vector file \\
+rgdal::ogrDrivers() 	& list supported file formats \\
 
 
 \end{tabular}
@@ -282,8 +286,8 @@ ogrDrivers() 	& list supported file formats \\
 
                 plot()  & vector plot. add=TRUE overlays multiple plots, e.g. combine with raster data  \\
 summary() & metadata and data summary \\                
-extent() & extent/bounding box of vector data \\
-coordinates()	& sets spatial coordinates to create spatial data, or retrieves spatial coordinates\\
+raster::extent() & extent/bounding box of vector data \\
+sp::coordinates()	& sets spatial coordinates to create spatial data, or retrieves spatial coordinates\\
 
 \end{tabular}
 
@@ -310,13 +314,14 @@ Check out the functions in the rgeos package, which provides most of the classic
                 & \\
 subset()		& subset spatial data, based on a condition, e.g. keep only certain points \\                
 merge() 		& Merge a Spatial object having a data.frame (i.e. merging of non-spatial attributes)\\
-over()			& spatial overlay for points, grids and polygons \\
-rasterize() 		& Rasterize points, lines, or polygons\\ 
-distanceFromPoints()    & computes the distance to points, output is a raster\\
-extract()		& extracts raster values behind points, lines or polygons \\
-gIntersection()		& intersection of vector data sets \\
-gBuffer()		& Buffer Geometry \\
- & 
+sp::over()			& spatial overlay for points, grids and polygons \\
+raster::rasterize() 		& Rasterize points, lines, or polygons\\ 
+raster::\par distanceFromPoints()    & computes the distance to points, output is a raster\\
+raster::extract()		& extracts raster values behind points, lines or polygons \\
+rgeos::gIntersection()		& intersection of vector data sets \\
+rgeos::gBuffer()		& Buffer Geometry \\
+maptools::elide()  & Rotate, scale or shift spatial objects \\
+&
 \end{tabular}
 
 
@@ -328,11 +333,11 @@ gBuffer()		& Buffer Geometry \\
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
-kfold() & partitioning of data set for training/validation purpose\\
+dismo::kfold() & partitioning of data set for training/validation purpose\\
 evaluate() & cross-validation of models with presence/absence data\\               
-randomForest() & fits a randomForest model  \\
+randomForest::\par randomForest() & fits a randomForest model  \\
 maxent() & executes Maxent from R\\
-gam() & fits a GAM \\
+mgcv::gam() & fits a GAM \\
 pls() & fits a partial least squares model \\                
 predict() & predicts statistical model into space (raster) \\
 
@@ -342,37 +347,46 @@ predict() & predicts statistical model into space (raster) \\
 
 
 \rule{0.32\textwidth}{0.4pt}
-\scriptsize
+%\scriptsize
 
 
 \section{Movement Analysis}
 
-For most of the following commands the data sets need to be converted to a specific format.
+For most of the following commands the data sets need to be converted to a specific format. The formats for the \verb!move! packages are based on the \verb!raster! and \verb!sp! and can thus be manipulated using the same functions.
 
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
                 & \\
-move() & import of movement data sets from movebank.org  \\
-moveStack() & stacks multiple animal tracks \\
-split() & splits stack into single move objects \\
-movebankLogin() & stores movebank.org credentials \\
-searchMovebankStudies() & reports the studies in movebank.org matching search criteria\\
-getMovebankData() & import tracks directly from movebank.org \\
-show() & summary of the move object \\
-as() & coerce movement between object types \\
-angle() &  extracts turning angles from a move object\\
-speed() & extracts speed from a move object \\  
-distance() & extracts distance between locations from a move object \\
-time.lag() & extracts time lag between locations from a move object \\
-spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
-mcp() & calculates minimum convex polygons for SpPdf \\
-kernelUD() & calculates a kernel density surface for SpPdf \\
-brownian.bridge() & claculates constant variance Brownian bridges \\
-brownian.bridge.dyn() & calculates dynamic Brownian bridges \\
-LoCoH.k() & calculates local convex hulls using k neighbours \\
-LoCoH.r() & calculates local convex hulls using a radius of r \\
-LoCoH.a() & calculates local convex hulls using an adpative radius \\
+move::move() & import of movement data sets from movebank.org csv's or from loaded data \\
+move::n.locs() & return the number of locations \\
+move::timestamps() & extract timestamps from move objects\\
+move::unUsedRecords() & return the un used records (outliers usw)\\
+move::burst() & assign categories to segments for segmented analysis \\
+move::moveStack() & stacks multiple animal tracks \\
+move::UDStack() & stack a list of UDs, convert a RasterStack to UDStack or convert a BurstStack to a UDStack by standardizing.\\
+move::split() & splits stack into single move objects, or split a UDStack \\
+move::movebankLogin() & stores movebank.org credentials \\
+move::\par searchMovebankStudies() & reports the studies in movebank.org matching search criteria\\
+move::getMovebankData() & import tracks directly from movebank.org \\
+as() & coerce movement between object types, for example to data frame or ltraj \\
+move::angle() &  calculate bearings from a move object\\
+move::turnAngleGc() & calculate turning angles\\
+move::speed() & extracts speed from a move object \\  
+move::distance() & extracts distance between locations from a move object \\
+move::timeLag() & extracts time lag between locations from a move object \\
+move::spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
+move::emd() & calculate differences between UDs or UDStacks\\
+move::raster2contour() & calculate UD contour lines \\
+move::getVolumeUD() & convert UD to UD quantiles \\
+move::interpolateTime() & linearly interpolate locations to specific times to for example regularize a track \\
+adehabitatHR::mcp() & calculates minimum convex polygons for SpPdf \\
+adehabitatHR::kernelUD() & calculates a kernel density surface for SpPdf \\
+%brownian.bridge() & calculates constant variance Brownian bridges \\
+move::\par brownian.bridge.dyn() & calculates dynamic Brownian bridges \\
+adehabitatHR::LoCoH.k() & calculates local convex hulls using k neighbours \\
+adehabitatHR::LoCoH.r() & calculates local convex hulls using a radius of r \\
+adehabitatHR::LoCoH.a() & calculates local convex hulls using an adpative radius \\
 % .. & ... \\
 & 
 
@@ -392,7 +406,7 @@ Some useful commands which are related to spatial data analysis.
                 & \\
 gmap() & get google maps for your plot \\
 geocode() & geocoding in R \\
-ggplot() & lots of very fancy plotting options \\
+ggplot2::ggplot() & lots of very fancy plotting options \\
 ppp() & creates a point pattern \\
 %show() & summary of the move object \\
 
