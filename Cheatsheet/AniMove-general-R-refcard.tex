@@ -229,7 +229,7 @@ For database interaction, see packages \code{RODBC}, \code{DBI},
 \code{XML}, \code{hdf5}, \code{netCDF} 
 
 
-\bigskip
+% \bigskip
 
 \rule{.3\textwidth}{0.4pt}
 
@@ -282,7 +282,7 @@ is not long enough
 \bcode{cbind(df1, df2), rbind(df1,df2)} combine arguments by columns (rows) for data frames and the like
 
 % \bigskip
-\smallskip	
+% \smallskip	
 
 % \section{Data removal}
 \bcode{rm(obj)} removes object
@@ -292,7 +292,7 @@ is not long enough
 \rule{.3\textwidth}{0.4pt}
 
 
-\smallskip	
+% \smallskip	
 
 \section{Indexing your data}
 
@@ -526,6 +526,11 @@ decimals
 
 \rule{.3\textwidth}{0.4pt}
 
+% \begin{center}
+%  \includegraphics[width=.3\textwidth]{pics/earth-observation_org_WegmannBevanda_rhino}
+%  % zebra_crop_ppt.png: 1006x872 pixel, 72dpi, 35.49x30.76 cm, bb=0 0 1006 872
+% \end{center}
+
 
 \section{Advanced data processing}
 \everypar={\hangindent=9mm}
@@ -556,9 +561,10 @@ subsetted by \code{INDEX}
 
 \bcode{unstack(x, ...)} inverse of \code{stack()}
 
-\bigskip
+% \bcode{ }
+% \smallskip
 
-\subsubsection{Reshaping your data}
+% \subsubsection{Reshaping your data}
 
 \bcode{cast(x, ...)} reshapes a data frame between 'wide' format with
      repeated measurements in separate columns of the same record and
@@ -578,7 +584,7 @@ subsetted by \code{INDEX}
 % \bigskip
 % 
 
-\bigskip
+% \bigskip
      
 \subsection{Strings}
 \everypar={\hangindent=9mm}
@@ -657,10 +663,10 @@ optional on input. See \code{?strftime}.
 
 \bigskip
 
-\begin{center}
- \includegraphics[width=.3\textwidth]{pics/earth-observation_org_WegmannBevanda_velvet_monkey.png}
- % zebra_crop_ppt.png: 1006x872 pixel, 72dpi, 35.49x30.76 cm, bb=0 0 1006 872
-\end{center}
+% \begin{center}
+%  \includegraphics[width=.3\textwidth]{pics/animove_org_WegmannBevanda_zebra_africa_dbb_light}
+%  % zebra_crop_ppt.png: 1006x872 pixel, 72dpi, 35.49x30.76 cm, bb=0 0 1006 872
+% \end{center}
 
 
 
@@ -671,7 +677,7 @@ optional on input. See \code{?strftime}.
 
 Several plotting options exist in R to plot your results and these are constantly changing. Below you will find standard R plotting commands and further down more sophisticated options using e.g. ggplot2 functionality. Furthermore does R offer spatial data plotting options which can be found on the AniMove spatial cheat sheet.
 
-\bigskip
+% \bigskip
 
 \everypar={\hangindent=9mm}
 
@@ -855,11 +861,11 @@ and 25, or any single character within \code{""}
 ggplot2 comes with its own syntax which is different from normal R syntax. It takes quite a while to learn it but produces very fancy graphics.
 
 \bcode{qplot(x=vx, y=vy, data=df)} plots columns df\$vx and df\$vy
-\bcode{ggsave()} save the last plot
-
-\smallskip 
-
-ggplot2 comes with a lot of more functions, please read the ggplot2 manual for further information. The reshape2 package is very handy for reshaping your data and RColorBrewer increases your color choices.
+% \bcode{ggsave()} save the last plot
+% 
+% \smallskip 
+% 
+% ggplot2 comes with a lot of more functions, please read the ggplot2 manual for further information. The reshape2 package is very handy for reshaping your data and RColorBrewer increases your color choices.
 
 \bigskip
 
@@ -1099,10 +1105,10 @@ from either \code{yes} or \code{no}
   
 This R reference card is adapted to \href{mailto:contact@animove.org}{AniMove} needs by Martin Wegmann, Benjamin Leutner and Mirjana Bevanda but based on the reference card by Jonas Stein, Tom Short and Emmanuel Paradis.
 
-\bigskip
-
-\bigskip
-
+% \bigskip
+% 
+% \bigskip
+% 
 \begin{center}
  \includegraphics[width=.13\textwidth]{pics/earth-observation_org_WegmannBevanda_giraffe.png}
  % zebra_crop_ppt.png: 1006x872 pixel, 72dpi, 35.49x30.76 cm, bb=0 0 1006 872
