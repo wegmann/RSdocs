@@ -308,18 +308,29 @@ spectralIndices()   & computation of spectral indices \\
 rasterCVA()     & change vector analysis for change detection\\
 rasterPCA()     & principal component analysis \\
 tasseledCap()   & tasseled cap transformation \\
-fCover()   & analysis of fractional cover\\
+fCover()   	& analysis of fractional cover\\
+sam()		& spectral angle mapper\\
+
 
  \bigskip
 
-\subsubsection{Preprocessing}
+ 
+\subsubsection{Info \& Preprocessing}
 
+getMeta()	& extract band information\\
 cloudMask()   & cloud masking\\
 cloudShadowMask()   & cloud shadow masking\\
 topCor()   & topographic correction\\
 panSharpen()   & pan sharpening\\
 histMatch()   & image to image contrast matching\\
 decodeQA()   & quality flags to bit-words\\
+normImage()	& normalize raster iamgeß\\
+pifMatch()	& pseudo-invariant features\\
+rescaleImage()	& linear image rescaling\\
+readEE()	& import EarthExplorer files\\
+readRSTBX()	& save and read RStoolbox files\\
+stackMeta()	& import separate LSAT files to stack\\
+lsat		& Landsat exampel data(lsat)\\
 
 \end{tabular}
 
@@ -414,13 +425,13 @@ svm() & support vector machine \\
 predict() & predicts statistical model into space (raster) \\
 
  & \\
-move() & import of movement data sets from movebank.org  \\
-angle() &  extracts turning angles from a move object\\
-speed() & extracts speed from a move object \\  
-distance() & extracts distance between locations from a move object \\
-move::spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
-mcp() & calculates minimum convex polygons for SpPdf \\
-kernelUD() & calculates a kernel density surface for SpPdf \\
+% move() & import of movement data sets from movebank.org  \\
+% angle() &  extracts turning angles from a move object\\
+% speed() & extracts speed from a move object \\  
+% distance() & extracts distance between locations from a move object \\
+% move::spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
+% mcp() & calculates minimum convex polygons for SpPdf \\
+% kernelUD() & calculates a kernel density surface for SpPdf \\
 \end{tabular}
 
 \bigskip
