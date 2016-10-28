@@ -3,7 +3,7 @@
 
 \begin{frame}{R and spatial data handling}
 
-      \begin{itemize}
+      \begin{itemize}[<+->]
 	\item Import of raster data
 	\item query data and plot spatial data
 	\item compute vegetation indices
@@ -28,7 +28,7 @@
 	    \item don't hesitate to look at the command syntax!
 	  \end{itemize}
 
-    \vspace{1cm}
+    \vspace{1cm} \pause
 
 	  \textcolor{gray}{
 	  \begin{tiny}
@@ -185,7 +185,7 @@ If the raster data has negativ values and the NDVI does not display properly, do
 
           \leftskip-2.58em%
           \vskip-0.3em
-          \includegraphics[width=1.28\textwidth,clip=true,trim=0 0 0 0]{rectangle_seawifs_storm}
+          \includegraphics[width=1.28\textwidth,clip=true,trim=0 0 0 0]{giraffe_landscape_Wegmann}
             \leftskip-6.5em%
             \vskip1.5em%
   \vfill
@@ -451,83 +451,20 @@ to crop your data set use crop(), but only a rectangle will be returned, with ma
 \end{frame}
 
 
+ \begin{frame}{a picture}
+  
+  
+    \begin{center}
+	  \begin{overpic} 
+	 [width=.5\textwidth]{giraffe_landscape_Wegmann}
+	 \end{overpic}
+    \end{center}
  
-% 
-% % \begin{frame}[fragile]{Plotting Maps}
-% % \lstset{basicstyle=\tiny}
-% % 
-% %     \begin{lstlisting}
-% % 	Cairo(width=width, height=height, type=filetyp, file=outputfile, units="px", bg=bgcol)
-% % 	plot(t2,asp=1, legend=FALSE,cex.axis=1.4*cexscale, col=classcolors,breaks=(seq(0,length(classcolors))+0.5),maxpixels=ncell(t2) )
-% % 		
-% % 	legend("bottomright", legend = classnames, cex=legend.cex*cexscale, col= "black", fill= classcolors, inset=.008, title = "Legend")
-% % 	title(main=titlename, cex.main=1.5*cexscale)
-% % 	
-% % 	northarrow(c(0.96, 0.93), 0.019, coordsystem="npc", cex=cexscale)
-% % 	coordslabel=scalebar(c(0.15, 0.032),length=40,unitRatio=1000, coordsystem="npc",division.cex=1.4*cexscale)
-% % 	text(coordslabel[1],coordslabel[2], labels=projectionname, adj=c(1,4.2), cex=1.4*cexscale)
-% % 	#############################
-% % 	#subplot in left upper corner
-% % 	front=c(0.02 ,0.19, 0.72,0.99)
-% % 	#no borders for subimage
-% % 	par(fig=front,new=T,lty=0, mar=c(0,0,0,0), omi=c(0,0,0,0))
-% % 	plot(country,asp=1,col=countrycolors, border="black" ,lwd="1", bg="transparent",lty=1)
-% % 	plot(polygonFromExtent(projectExtent(t2, projection(country)), sp=TRUE),add=TRUE,  border="red", lwd="2",asp=1,lty=1)
-% % 	text(coordinates(country), labels=as.character(country@data$GMI_CNTRY), cex=1.1*cexscale, col= "black")
-% % 	
-% % 	dev.off()
-% % 
-% %    \end{lstlisting}
-% % 
-% %     full script can be provided if needed
-% % 
-% % \end{frame}
-% 
-% 
-% % \begin{frame}[fragile]{Plotting Maps}
-% % 
-% %   \includegraphics[width=.65\textwidth,clip=true,trim=0 0 0 0]{LULC_classification_17473_2010}
-% % 
-% % \end{frame}
-% 
-% 
-% \begin{frame}[fragile]{Extract values}
-% 
-%     evt. relevant:
-%     
-%     \begin{itemize}
-%      \item Cellids
-%      \item Polygons
-%      \item Polylines
-%      \item Points
-%      \item Extent
-%     \end{itemize}
-% 
-%     mit:
-% 
-%     \begin{lstlisting}
-%       matrix<-extract(b3, vector)
-%       matrix<-extract(b3, c(1:2, 10, 100))
-%    \end{lstlisting}
-% 
-% \end{frame}
-% 
-% 
-% 
-% 
-% \begin{frame}
-%  
-%       \begin{Huge}Lust auf mehr?\end{Huge}
-% 
-%       \vspace{1cm}
-% 
-%       ein paar spannende Packete:
-% 
-%       \begin{itemize}
-% 	  \item sp, rgdal, rgeos, spdep
-% 	  \item spatial,fields,maptools, maps
-% 	  \item spatstats, spatgraphs, trip
-% 	  \item rasterVis, rworldmap,....
-%       \end{itemize}
-% 
-% \end{frame}
+ 
+       
+      \begin{textblock}{4}(16,8)
+	    \includegraphics[width=1cm]{lynx_logo}
+      \end{textblock}
+  
+ \end{frame}
+ 
