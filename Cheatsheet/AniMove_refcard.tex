@@ -85,14 +85,17 @@
 \setlength{\postmulticols}{1pt}
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
-
+  
 \begin{center}
+	 \includegraphics[width=.2\textwidth]{pics/animove_logo.png}
+     
      \Large{\textbf{AniMove Cheat Sheet}} \\
-     for animal movement analysis, spatial data handling, remote sensing and spatial statistics
+     for animal movement analysis, spatial data handling, remote sensing, spatial statistics and visualization
+     
 \end{center}
 
 % \begin{center}
-%  \includegraphics[width=.2\textwidth]{pics/animove_org_WegmannBevanda_zebra_africa_dbb_light.png}
+%  \includegraphics[width=.2\textwidth]{animove_org_WegmannBevanda_zebra_africa_dbb_light.png}
 %  % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
 % \end{center}
 
@@ -131,15 +134,16 @@ further relevant packages:\\
 \verb!lme4!  & mixed-effects model\\
 % 
 & \\
-visualisation packages:\\
+visualization packages:\\
 \verb!maptools!  & handling spatial objects\\
 \verb!maps!  & map display\\
 \verb!mapproj!  & map projections\\
 \verb!mapdata!  & supplements to maps\\
-\verb!rasterVis!  & enhanced raster visualisation\\
+\verb!rasterVis!  & enhanced raster visualization\\
 \verb!ggplot2!  & for more fancy plots\\
 \verb!ggmap!  & map backgrounds for \verb!ggplot2!\\
 \verb!reshape2!  & flexibly reshape data \\
+\verb!moveVis!  & animating movement and environ. data \\
  & 
 \end{tabular}
 
@@ -187,7 +191,7 @@ raster::NAvalue() & get or set background values
 \end{tabular}
 
 
-\subsubsection{Visualisation}
+\subsubsection{Visualization}
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
@@ -197,11 +201,9 @@ levelplot() & fancy way to plot raster data information \\
 densityplot() & raster value density plot \\
 bwplot() & violin plot of raster data values \\
 hovmoller() & spatio-temporal plotting options \\
-streamplot() & plotting of streamlines
-
+streamplot() & plotting of streamlines \\
+animate\_raster() & animating of multi-temporal environmental data
 \end{tabular}
-
-
 
 
 
@@ -360,41 +362,73 @@ For most of the following commands the data sets need to be converted to a speci
 move::move() & import of movement data sets from movebank.org csv's or from loaded data \\
 move::n.locs() & return the number of locations \\
 move::timestamps() & extract timestamps from move objects\\
-move::unUsedRecords() & return the un used records (outliers usw)\\
+move::unUsedRecords() &  returns the unused records (outliers, non location sensor data, etc)\\
 move::burst() & assign categories to segments for segmented analysis \\
 move::moveStack() & stacks multiple animal tracks \\
 move::UDStack() & stack a list of UDs, convert a RasterStack to UDStack or convert a BurstStack to a UDStack by standardizing.\\
-move::split() & splits stack into single move objects, or split a UDStack \\
+move::split() & splits movestack into single move objects, or splits a UDStack\\
 move::movebankLogin() & stores movebank.org credentials \\
-move::\par searchMovebankStudies() & reports the studies in movebank.org matching search criteria\\
+move::\par searchMovebankStudies() & search for a study in Movebank by keywords\\
 move::getMovebankData() & import tracks directly from movebank.org \\
-as() & coerce movement between object types, for example to data frame or ltraj \\
-move::angle() &  calculate bearings from a move object\\
+move::as.data.frame() & create data frame of a move object\\
+move::angle() &  calculate headings from a move object\\
 move::turnAngleGc() & calculate turning angles\\
 move::speed() & extracts speed from a move object \\  
 move::distance() & extracts distance between locations from a move object \\
 move::timeLag() & extracts time lag between locations from a move object \\
-move::spTransform() & changes the projection of a move object to a default of Azimuthal Equi-distance \\
+move::spTransform() & change projection of a move object\\
 move::emd() & calculate differences between UDs or UDStacks\\
 move::raster2contour() & calculate UD contour lines \\
 move::getVolumeUD() & convert UD to UD quantiles \\
 move::interpolateTime() & linearly interpolate locations to specific times to for example regularize a track \\
+move::coordinates() & extract coordinates of a move object\\
+move::getData\par
+RepositoryData() & download data directly from the Movebank Data Repository\\
+move::getDuplicated\par
+Timestamps() & get all pairs of duplicated timestamps\\
+move::getMovebank\par
+NonLocationData() & downloads the non location data directly from movebank.org\\
+move::brownian.\par
+bridge.dyn() & calculate the utilization distribution (UD) using the dynamic Brownian Bridge Movement Model\\
+move::dynBGB() &  calculate the utilization distribution (UD) using the Bivariate Gaussian Bridge model\\
+& 
+\end{tabular}
+
+\section{}
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
 adehabitatHR::mcp() & calculates minimum convex polygons for SpPdf \\
 adehabitatHR::kernelUD() & calculates a kernel density surface for SpPdf \\
-%brownian.bridge() & calculates constant variance Brownian bridges \\
-move::\par brownian.bridge.dyn() & calculates dynamic Brownian bridges \\
 adehabitatHR::LoCoH.k() & calculates local convex hulls using k neighbours \\
 adehabitatHR::LoCoH.r() & calculates local convex hulls using a radius of r \\
 adehabitatHR::LoCoH.a() & calculates local convex hulls using an adpative radius \\
-% .. & ... \\
-& 
-
+&
 \end{tabular}
 
 
 %\rule{0.32\textwidth}{0.4pt}
+\rule{0.32\textwidth}{0.4pt}
+%\scriptsize
+\section{Movement Visualization}
 
+Commands to visualize movement, combining both raster and vector data types for displaying animal-environment interactions.
 
+\begin{tabular}{@{}p{\the\MyLen}%
+                @{}p{\linewidth-\the\MyLen}@{}}
+                & \\
+get\_imconvert() & Checks, downloads and/or installs ImageMagick needed to create GIF files
+ \\
+
+ & \\
+animate\_move() & animating of movement and environmental data \\
+animate\_stats() & animating of movement and environmental data statistics \\
+&
+
+\end{tabular}
+
+%\rule{0.32\textwidth}{0.4pt}
+\rule{0.32\textwidth}{0.4pt}
+%\scriptsize
 \section{Miscellaneous}
 
 Some useful commands which are related to spatial data analysis.
@@ -431,14 +465,14 @@ while (...) \{ ...\} & while statement \\
 
 \rule{0.32\textwidth}{0.4pt}
 
-compiled by:\\ Wegmann, Leutner, Bevanda, Kranstauber, Horning \& Safi \\ \THEYEAR	
+compiled by:\\ Wegmann, Leutner, Bevanda, Kranstauber, Horning, Safi, Schwalb-Willmann  \& Scharf, \THEYEAR	
 
 \url{http://www.animove.org}
 
 
-\bigskip
+% \bigskip
 
-\bigskip
+% \bigskip
 
 % \begin{center}
 %  \includegraphics[width=.3\textwidth]{../../Pictures/webpage/animove/rhino.png}
@@ -446,10 +480,10 @@ compiled by:\\ Wegmann, Leutner, Bevanda, Kranstauber, Horning \& Safi \\ \THEYE
 % \end{center}
 
 
-\begin{center}
- \includegraphics[width=.2\textwidth]{pics/earth-observation_org_WegmannBevanda_rhino_family.png}
- % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
-\end{center}
+% \begin{center}
+%  \includegraphics[width=.2\textwidth]{earth-observation_org_WegmannBevanda_rhino_family.png}
+%  % rhino.png: 719x1056 pixel, 300dpi, 6.09x8.94 cm, bb=0 0 173 253
+% \end{center}
 
 
 
