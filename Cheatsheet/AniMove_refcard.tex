@@ -411,17 +411,18 @@ adehabitatHR::LoCoH.a() & calculates local convex hulls using an adpative radius
 %\scriptsize
 \section{Movement Visualization}
 
-Commands to visualize movement, combining both raster and vector data types for displaying animal-environment interactions.
+Commands to visualize movement and environmental variables as animations, e.g. to display animal-environment interactions
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
                 & \\
-get\_imconvert() & Checks, downloads and/or installs ImageMagick needed to create GIF files
- \\
+get\_libraries() & detects system libraries needed to create GIF or video files \\
+get\_formats() & displays all available output formats \\
 
  & \\
-animate\_move() & animating of movement and environmental data \\
-animate\_stats() & animating of movement and environmental data statistics \\
+animate\_move() & animates movement tracks and environmental data \\
+animate\_stats() & animates movement tracks and env. data alongside interaction statistics \\
+animate\_raster() & animates environmental data \\
 &
 
 \end{tabular}
