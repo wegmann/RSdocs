@@ -111,7 +111,8 @@ last updated: \today
 		@{}p{\linewidth-\the\MyLen}@{}}
 \verb!move!  & access and analyse movement data\\
 \verb!bcpa!  & analyse movement tracks\\
-\verb!ctmm!  & calculate continuous time movement models\\
+\verb!ctmm!  &  continuous time movement models\\
+\verb!recurse!  & analyze recursions in movement data\\
 \verb!adehabitatHR! & home range calculations including clasical methods\\
 \verb!dismo!  &  species distribution modelling \\
 \verb!raster!    & for raster data manipulation \\
@@ -430,6 +431,24 @@ animate\_raster() & animates environmental data \\
 %\rule{0.32\textwidth}{0.4pt}
 \rule{0.32\textwidth}{0.4pt}
 %\scriptsize
+\section{Recursion}
+
+Compute revisitation metrics for trajectory data with the \verb!recurse! package.  Data can be in a \verb!move! object or data frame.
+
+\begin{tabular}{@{}p{\the\MyLen + 20pt}%
+                @{}p{\linewidth-\the\MyLen - 20pt}@{}}
+                & \\
+getRecursions() & calculates revisits for every location \\
+getRecursionsAtLocations() &  calculates revisits for specified locations \\
+calculateIntervalResidenceTime() &  calculates the residence time during user‐specified intervals \\
+getRecursionsInPolygon() & calculates revists inside user‐specified polygon \\
+%show() & summary of the move object \\
+
+\end{tabular}
+
+%\rule{0.32\textwidth}{0.4pt}
+\rule{0.32\textwidth}{0.4pt}
+%\scriptsize
 \section{Miscellaneous}
 
 Some useful commands which are related to spatial data analysis.
@@ -438,22 +457,14 @@ Some useful commands which are related to spatial data analysis.
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
                 & \\
-gmap() & get google maps for your plot \\
 geocode() & geocoding in R \\
-ggplot2::ggplot() & lots of very fancy plotting options \\
 ppp() & creates a point pattern \\
 %show() & summary of the move object \\
 
 complete.cases() &  returns only cases with no missing values \\                
 gridSample() & sample point from a grid e.g. just one point per pixel \\
 
- & \\
-function(...)\{..\} & generates a defined functions\\
-return(...) & returns the output of a function \\
-if (...) \{...\} else\{...\} & if else statement \\
-for (...) \{...\} & for loop \\
-while (...) \{ ...\} & while statement \\
- & \\
+
 
 
 \end{tabular}
@@ -466,7 +477,7 @@ while (...) \{ ...\} & while statement \\
 
 \rule{0.32\textwidth}{0.4pt}
 
-compiled by:\\ Wegmann, Leutner, Bevanda, Kranstauber, Horning, Safi, Schwalb-Willmann  \& Scharf, \THEYEAR	
+compiled by:\\ Wegmann, Leutner, Bevanda, Kranstauber, Horning, Safi, Schwalb-Willmann, Scharf  \& Bracis, \THEYEAR	
 
 \url{http://www.animove.org}
 
