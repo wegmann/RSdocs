@@ -403,32 +403,38 @@ adehabitatHR::kernelUD() & calculates a kernel density surface for SpPdf \\
 adehabitatHR::LoCoH.k() & calculates local convex hulls using k neighbours \\
 adehabitatHR::LoCoH.r() & calculates local convex hulls using a radius of r \\
 adehabitatHR::LoCoH.a() & calculates local convex hulls using an adpative radius \\
-&
 \end{tabular}
 
 
 %\rule{0.32\textwidth}{0.4pt}
+\quad
 \rule{0.32\textwidth}{0.4pt}
 %\scriptsize
 \section{Movement Visualization}
 
-Commands to visualize movement and environmental variables as animations, e.g. to display animal-environment interactions
+Visualize movement and environmental data using \verb!moveVis!.
 
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
                 & \\
-get\_libraries() & detects system libraries needed to create GIF or video files \\
-get\_formats() & displays all available output formats \\
-
- & \\
-animate\_move() & animates movement tracks and environmental data \\
-animate\_stats() & animates movement tracks and env. data alongside interaction statistics \\
-animate\_raster() & animates environmental data \\
-&
-
+view\_spatial() & displays tracks on an interactive map \\
+align\_move() & aligns tracks to a uniform time scale \\
+frames\_spatial() & creates a list of \verb!ggplot2! map frames \\
+frames\_spatial() & creates a list of \verb!ggplot2! graph frames \\
+add\_gg() & adds \verb!ggplot2! funcions to frames \\
+add\_labels() & adds labels to frames \\
+add\_scalebar() & adds scalebar to frames \\
+add\_northarrow() & adds north arrow to frames \\
+add\_progress() & adds progress bar to frames \\
+add\_timestamps() & adds timestamps bar to frames \\
+add\_colourscale() & adds colour scale to frames \\
+add\_text() & adds text to frames \\
+join\_frames() & joins multiple frames side-by-side \\
+animate\_frames() & renders frames as GIF or video \\
 \end{tabular}
 
 %\rule{0.32\textwidth}{0.4pt}
+\quad
 \rule{0.32\textwidth}{0.4pt}
 %\scriptsize
 \section{Recursion}
@@ -462,10 +468,7 @@ ppp() & creates a point pattern \\
 %show() & summary of the move object \\
 
 complete.cases() &  returns only cases with no missing values \\                
-gridSample() & sample point from a grid e.g. just one point per pixel \\
-
-
-
+gridSample() & sample points from a grid \\
 
 \end{tabular}
 
@@ -474,12 +477,10 @@ gridSample() & sample point from a grid e.g. just one point per pixel \\
 % \rule{0.3\linewidth}{0.25pt}
 
 \scriptsize
-
+\quad
 \rule{0.32\textwidth}{0.4pt}
 
-compiled by:\\ Wegmann, Leutner, Bevanda, Kranstauber, Horning, Safi, Schwalb-Willmann, Scharf  \& Bracis, \THEYEAR	
-
-\url{http://www.animove.org}
+compiled by: Wegmann, Leutner, Bevanda, Kranstauber, Horning, Safi, Schwalb-Willmann, Scharf  \& Bracis, \THEYEAR, \url{http://www.animove.org}
 
 
 % \bigskip
