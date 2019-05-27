@@ -115,10 +115,11 @@ last updated: \today
 \verb!recurse!  & analyze recursions in movement data\\
 \verb!adehabitatHR! & home range calculations including clasical methods\\
 \verb!dismo!  &  species distribution modelling \\
+\verb!amt!  &  step selection function \\
 \verb!raster!    & for raster data manipulation \\
-\verb!sp!     & for vector data manipulation \\
+\verb!sp/sf!     & for vector data manipulation \\
 \verb!rgdal!  & data import and export, projections \\
-\verb!rgeos!  & geometry commands \\
+% \verb!rgeos!  & geometry commands \\
 \verb!spdep!  & spatial dependence \\
 
 & \\
@@ -361,37 +362,41 @@ For most of the following commands the data sets need to be converted to a speci
                 @{}p{\linewidth-\the\MyLen}@{}}
                 & \\
 move::move() & import of movement data sets from movebank.org csv's or from loaded data \\
+move::namesIndiv() & return the names of the individuals \\
 move::n.locs() & return the number of locations \\
-move::timestamps() & extract timestamps from move objects\\
-move::unUsedRecords() &  returns the unused records (outliers, non location sensor data, etc)\\
-move::burst() & assign categories to segments for segmented analysis \\
-move::moveStack() & stacks multiple animal tracks \\
-move::UDStack() & stack a list of UDs, convert a RasterStack to UDStack or convert a BurstStack to a UDStack by standardizing.\\
-move::split() & splits movestack into single move objects, or splits a UDStack\\
-move::movebankLogin() & stores movebank.org credentials \\
-move::\par searchMovebankStudies() & search for a study in Movebank by keywords\\
-move::getMovebankData() & import tracks directly from movebank.org \\
-move::as.data.frame() & create data frame of a move object\\
-move::angle() &  calculate headings from a move object\\
+move::angle() &  calculate headings\\
 move::turnAngleGc() & calculate turning angles\\
-move::speed() & extracts speed from a move object \\  
-move::distance() & extracts distance between locations from a move object \\
-move::timeLag() & extracts time lag between locations from a move object \\
+move::speed() & calculate speed between location \\  
+move::distance() & calculate distance between locations \\
+move::timeLag() & calculate time lag between locations \\
 move::spTransform() & change projection of a move object\\
-move::emd() & calculate differences between UDs or UDStacks\\
-move::raster2contour() & calculate UD contour lines \\
-move::getVolumeUD() & convert UD to UD quantiles \\
-move::interpolateTime() & linearly interpolate locations to specific times to for example regularize a track \\
+move::timestamps() & extract timestamps from move objects\\
 move::coordinates() & extract coordinates of a move object\\
-move::getData\par
-RepositoryData() & download data directly from the Movebank Data Repository\\
+move::unUsedRecords() & extract unused records (outliers, non location sensor data, etc)\\
 move::getDuplicated\par
-Timestamps() & get all pairs of duplicated timestamps\\
-move::getMovebank\par
-NonLocationData() & downloads the non location data directly from movebank.org\\
+Timestamps() & returns all pairs of duplicated timestamps\\
+move::moveStack() & stacks multiple animal tracks \\
+move::split() & splits movestack into single move objects, or splits a UDStack\\
+move::as.data.frame() & create data frame of a move object\\
+move::UDStack() & stack a list of UDs, convert a RasterStack to UDStack or convert a BurstStack to a UDStack by standardizing.\\
+move::burst() & segment track by a specified variable \\
+move::interpolateTime() & linearly interpolate locations to specific times to for example regularize a track \\
+move::thinTrackTime() & select segments from the original track with a fixed time interval \\
 move::brownian.\par
 bridge.dyn() & calculate the utilization distribution (UD) using the dynamic Brownian Bridge Movement Model\\
 move::dynBGB() &  calculate the utilization distribution (UD) using the Bivariate Gaussian Bridge model\\
+% move::getVolumeUD() & convert UD to UD quantiles \\
+move::raster2contour() & calculate UD contour lines \\
+move::emd() & calculate differences between UDs or UDStacks\\
+move::movebankLogin() & stores movebank.org credentials \\
+move::\par searchMovebankStudies() & search for a study in Movebank by keywords\\
+move::getMovebankData() & import tracks directly from movebank.org \\
+move::getMovebank\par
+NonLocationData() & downloads the non location data directly from movebank.org\\
+move::getMovebank\par
+ReferenceTable() & downloads the study's reference table from movebank.org\\
+move::getData\par
+RepositoryData() & download data directly from the Movebank Data Repository\\
 & 
 \end{tabular}
 
